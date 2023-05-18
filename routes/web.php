@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('dash', 'App\Http\Controllers\ControllerFirst@dashboard');
+Route::get('slug/{slug}', 'App\Http\Controllers\ControllerFirst@slug');
+Route::get('sluggy/{slug}/{slugg}/{sluggg}/{slugggg}/{sluggggg}', 'App\Http\Controllers\ControllerFirst@sluggy');
+
