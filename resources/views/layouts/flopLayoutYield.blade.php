@@ -9,9 +9,9 @@
           @vite('resources/css/app.css')
     </head>
     <body class="bg-violet-700">
-        <h1 class="text-center font-bold text-4xl text-indigo-700">Be with us</h1>
-        <div class='w-full bg-violet-300'>
-            @yield('content')
+    <body class="antialiased bg-violet-700">
+<h1 class="text-center font-bold text-4xl text-indigo-700 bg-slate-600 p-3 m-3">Be with us</h1>
+            @yield('first')
             <!-- @yield('insides') -->
         </div>
     

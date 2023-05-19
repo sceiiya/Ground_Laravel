@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ControllerFirst extends Controller
 {
+    //INSERT INTO metro_Manila_City (Uniqueid) VALUES (SUBSTR(REPLACE(UUID(), '-', ''), 1, 16));
+    public function dashv(ModuleFirst $objModel){
+        $mParam['title'] = 'First Read';
+        $mParam['data'] = $objModel->dashvoi();
+        return view('layouts.flopView', $mParam);
+    }
 
     public function dashboard()
     {
@@ -34,6 +40,11 @@ class ControllerFirst extends Controller
         return view('layouts.flopLayoutYield');
     }
 
+    public function inYield()
+    {
+        return view('flopYield');
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -47,7 +58,7 @@ class ControllerFirst extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -55,7 +66,9 @@ class ControllerFirst extends Controller
      */
     public function store(Request $request)
     {
-        //
+        echo $request->CityName;
+        echo $request->CityMayor;
+        echo $request->CityPostalCode;
     }
 
     /**
@@ -63,9 +76,15 @@ class ControllerFirst extends Controller
      */
     public function show(ModuleFirst $moduleFirst)
     {
+        $mParam['data'] = $moduleFirst->read();
+
+        return $mParam;
+
+    }
+    public function showSelect(ModuleFirst $moduleFirst)
+    {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      */
