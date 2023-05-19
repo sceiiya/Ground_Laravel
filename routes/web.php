@@ -20,4 +20,6 @@ Route::get('/', function () {
 Route::get('dash', 'App\Http\Controllers\ControllerFirst@dashboard');
 Route::get('slug/{slug}', 'App\Http\Controllers\ControllerFirst@slug');
 Route::get('sluggy/{slug}/{slugg}/{sluggg}/{slugggg}/{sluggggg}', 'App\Http\Controllers\ControllerFirst@sluggy');
+Route::get('fistView', 'App\Http\Controllers\ControllerFirst@flopView');
+Route::get('yieldView', 'App\Http\Controllers\ControllerFirst@flopYield');
 

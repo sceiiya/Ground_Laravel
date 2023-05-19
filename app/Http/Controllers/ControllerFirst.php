@@ -23,6 +23,17 @@ class ControllerFirst extends Controller
         echo $ss.' flop slug '.$sss.' space '.$ssss.' space '.$sssss.' space '.$ssssss;
     }
 
+    public function flopView()
+    {
+        return view('layouts.flopView');
+    }
+
+    
+    public function flopYield()
+    {
+        return view('layouts.flopLayoutYield');
+    }
+
     /**
      * Display a listing of the resource.
      */
