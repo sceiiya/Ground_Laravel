@@ -13,6 +13,11 @@ class ControllerFirst extends Controller
         $mParam['data'] = $objModel->dashvoi();
         return view('layouts.flopView', $mParam);
     }
+    public function docu(ModuleFirst $objModel){
+        $mParam['title'] = 'First Read';
+        $mParam['data'] = $objModel->dashvoi();
+        return view('layouts.dashvv', $mParam);
+    }
 
     public function dashboard()
     {
@@ -64,11 +69,19 @@ class ControllerFirst extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, ModuleFirst $moduleFirst)
     {
-        echo $request->CityName;
-        echo $request->CityMayor;
-        echo $request->CityPostalCode;
+        $DAta = [
+            'CityName' => $request->CityName,
+            'CityMayor' => $request->CityMayor,
+            'CityPostalCode' => $request->CityPostalCode,
+        ];
+        // print_r($DAta);
+        // return;
+        
+        $mParam= $moduleFirst->put($DAta);
+        echo $mParam;
+
     }
 
     /**
@@ -76,7 +89,7 @@ class ControllerFirst extends Controller
      */
     public function show(ModuleFirst $moduleFirst)
     {
-        $mParam['data'] = $moduleFirst->read();
+        $mParam = $moduleFirst->readall();
 
         return $mParam;
 
@@ -85,12 +98,32 @@ class ControllerFirst extends Controller
     {
         //
     }
+
+    public function read(Request $request, ModuleFirst $moduleFirst)
+    {
+        $mParam= $moduleFirst->read($request->Uniqueid);
+        return $mParam;
+    }
+    
+    public function readSel($UID, ModuleFirst $moduleFirst)
+    {
+        $mParam= $moduleFirst->read($UID);
+        return $mParam;
+    }
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ModuleFirst $moduleFirst)
-    {
-        //
+    public function manipulate(Request $request, ModuleFirst $moduleFirst){
+        $DAta = [
+            'Uniqueid' => $request->Uniqueid,
+            'CityName' => $request->CityName,
+            'CityMayor' => $request->CityMayor,
+            'CityPostalCode' => $request->CityPostalCode,
+        ];
+
+        $mParam= $moduleFirst->manipulate($DAta);
+        return $mParam;
+        
     }
 
     /**
@@ -104,8 +137,10 @@ class ControllerFirst extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ModuleFirst $moduleFirst)
+    public function destroy($UID, ModuleFirst $moduleFirst)
     {
-        //
+        $mParam= $moduleFirst->remcity($UID);
+        return $mParam;
+
     }
 }
