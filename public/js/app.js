@@ -18,7 +18,7 @@ $(document).ready(()=>{
                 }
         
                 $.ajax({
-                    url: 'api/new-city',
+                    url: 'https://scheidj.wd49p.com/api/new-city',
                     type: 'POST',
                     data: data,
                     beforeSend: ()=>{$('.theButton').text('Loading. . . do not click!');},
@@ -38,7 +38,7 @@ $(document).ready(()=>{
                 }
         
                 $.ajax({
-                    url: '/api/manipulate-city',
+                    url: 'https://scheidj.wd49p.com/api/manipulate-city',
                     type: 'POST',
                     beforeSend: ()=>{$('.theButton').text('Updating. . . Please wait!');},
                     data: data,
@@ -59,7 +59,7 @@ $(document).ready(()=>{
 // fetch function
 const fetchCity = ()=>{
     $.ajax({
-        url: 'api/show-city',
+        url: 'https://scheidj.wd49p.com/api/show-city',
         type: 'GET',
         headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')},
         success: (res)=>{
@@ -108,7 +108,7 @@ const fetchCity = ()=>{
                 const Ccode = $('#cPCode');
 
                 $.ajax({
-                    url: `api/show-city/${UID}`,
+                    url: `https://scheidj.wd49p.com/api/show-city/${UID}`,
                     type: 'GET',
                     data: UID,
                     beforeSend: ()=>{
@@ -151,7 +151,7 @@ const fetchCity = ()=>{
                 const Cuid = $('#cUID');
 
                 $.ajax({
-                    url: `/api/destroy-city/${UID}`,
+                    url: `https://scheidj.wd49p.com/api/destroy-city/${UID}`,
                     type: 'GET',
                     data: UID,
                     beforeSend: ()=>{
@@ -201,7 +201,7 @@ $(document).ready(()=>{
         }
         
         $.ajax({
-            url: 'api/manipulate-city',
+            url: 'https://scheidj.wd49p.com/api/manipulate-city',
             type: 'POST',
             data: data,
             headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')},
